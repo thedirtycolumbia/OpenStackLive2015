@@ -33,6 +33,8 @@ An odd number of monitors are required to avoid split brain scenarios.
 
 Object storage daemons serve objects, perform replication (you must run one per disk with a minimum of three).
 
+By default, if any object storage daemon hits 95% disk usage it hits a hard stop.
+
 Each object belongs to a placement group that will be replicated a configurable number of times.
 
 With erasure codes you can lower the amount of disk needed to replicate data.
@@ -42,6 +44,8 @@ Objects are automagically distributed. Data distribution is infrastructure-aware
 CRUSH is Consistent Replication Under Scalable Hashing. See: http://www.ssrc.ucsc.edu/Papers/weil-sc06.pdf
 
 Writes initially hit journals (best on separate SSD). You can require a write ACK to hit N replica journals.
+
+At the time of this writing, Ceph only has synchronous writes.
 
 When you get to the O(10) petabyte scale the overhead of moving data around in Swift makes Ceph preferable.
 
