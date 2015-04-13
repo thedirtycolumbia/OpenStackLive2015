@@ -23,7 +23,11 @@ As of the time of this writing, the filesystem is not production ready, but they
 
 Ceph monitors track cluster membership and state and provide consensus.
 
-Ceph implements a modified version of PAXOS for consensus.
+Monitors implement a modified version of the PAXOS protocol (requires time synchronization to a local NTP server).
+
+The maximum time difference tolerance between monitors is 50 milliseconds. This is configurable within bounds.
+
+SoftLayer is able to georeplicate Ceph because they have dedicated bandwidth and low latency in their WAN.
 
 An odd number of monitors are required to avoid split brain scenarios.
 
