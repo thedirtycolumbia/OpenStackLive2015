@@ -45,6 +45,8 @@ CRUSH is Consistent Replication Under Scalable Hashing. See: http://www.ssrc.ucs
 
 Writes initially hit journals (best on separate SSD). You can require a write ACK to hit N replica journals.
 
+With a SSD cache layer in front you already have a replicated persistence layer and can turn journaling off.
+
 At the time of this writing, Ceph only has synchronous writes.
 
 When you get to the O(10) petabyte scale the overhead of moving data around in Swift makes Ceph preferable.
