@@ -21,7 +21,11 @@ Ceph is self-healing. Ceph trades off even data distribution for self-healing ca
 
 As of the time of this writing, the filesystem is not production ready, but they are seeking testers.
 
-Ceph monitors track cluster membership and state and provide consensus (you must run an odd number of monitors).
+Ceph monitors track cluster membership and state and provide consensus.
+
+Ceph implements a modified version of PAXOS for consensus.
+
+An odd number of monitors are required to avoid split brain scenarios.
 
 Object storage daemons serve objects, perform replication (you must run one per disk with a minimum of three).
 
@@ -34,3 +38,5 @@ Objects are automagically distributed. Data distribution is infrastructure-aware
 CRUSH is Consistent Replication Under Scalable Hashing. See: http://www.ssrc.ucsc.edu/Papers/weil-sc06.pdf
 
 Writes initially hit journals (best on separate SSD). You can require a write ACK to hit N replica journals.
+
+When you get the the O(10) petabyte scale the overhead of moving data around in Swift makes Ceph preferable.
