@@ -1,5 +1,5 @@
 ## Get your hands dirty with OpenStack storage: Ceph
-_Csaba Balázs, Márk Korondi, Zoltán Arnold Nagy | IBM Research - Zurich_
+_Csaba Balázs, Márk Korondi, Zoltán Arnold Nagy (IBM Research - Zurich / IBM Cloud OpenStack Services)_
 
 Ceph is software defined storage for the cloud. Ceph gives you block storage, filesystem, and object storage.
 
